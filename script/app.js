@@ -5,12 +5,17 @@ const removeItem = document.getElementById('removeItem');
 const clearAll = document.getElementById('clearAll');
 const userList = document.getElementById('userList');
 
+users = ['Pamela Anderson', 'Kamala Harris','Andrew Garfield','Jung Kim Lee', 'George Clooney', 'Andy Fisher'];
+countries = ['New Zealand', 'USA', 'India', 'Saudi Arabia', 'China', 'Russia', 'Jamaica', 'Afghanistan'];
+
 //stores data to local storage
 function storeHandler(id){
+    const u = Math.floor(Math.random()*6);
+    const c = Math.floor(Math.random()*8);
     let data = {
-        name: `Person${id}`,
+        name: `${users[u]}`,
         age: 18 + parseInt(id),
-        country: `ABC${id}`
+        country: `${countries[c]}`
     }
 
     localStorage.setItem(id, JSON.stringify(data));
@@ -52,16 +57,32 @@ function clearAllHandler(){
     console.log("Local storage has been cleared !!");
 }
 
+//event listeners
 store.addEventListener('click', ()=>{
     const id = prompt("Enter ID to add");
-    storeHandler(id.trim());
+    if(id.trim()){
+        storeHandler(id.trim());
+    }
+    else{
+        console.log("Enter Valid ID");
+    }
 });
 retrieve.addEventListener('click', ()=>{
     const id = prompt("Enter ID to remove ");
-    retrieveHandler(id.trim());
+    if(id.trim()){
+        retrieveHandler(id.trim());
+    }
+    else{
+        console.log("Enter Valid ID");
+    }
 });
 removeItem.addEventListener('click', ()=>{
     const id = prompt("Enter ID to remove");
-    removeItemHandler(id.trim());
+    if(id.trim()){
+        removeItemHandler(id.trim());
+    }
+    else{
+        console.log("Enter Valid ID");
+    }
 });
 clearAll.addEventListener('click', clearAllHandler);
