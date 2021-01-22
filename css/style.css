@@ -1,0 +1,23 @@
+.outer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    margin: 60px;
+    text-align: center;
+}
+.btn{
+    background-color: #03500d;
+    color: #ffff;
+    padding: 15px;
+    margin:5px;
+}
+ul{
+    list-style: none;
+}
+h4{
+    background: #f3bfb6;
+}
+h3{
+    color: #03500d;
+}
